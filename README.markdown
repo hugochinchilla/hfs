@@ -11,7 +11,7 @@ Writing a File System with inodes from zero
 
 This practice will implement a file system, the module for file management for the OS and the interaction with user processes.
 
-<img src="/hugochinchilla/hfs/raw/master/doc/enunciado_files/esquema2009-en.png" alt="" width="380" />
+<img src="/hugochinchilla/hfs/raw/master/doc/enunciado_files/esquema2009-en-small.png" alt="" width="380" />
 
 ### General structure
 
