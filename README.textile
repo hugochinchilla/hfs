@@ -1,0 +1,4 @@
+This project is an exercises for a subject in "my degree":http://eps.uib.es/est_estudi.php?idest=3 
+
+h1. ASO (Operating Systems)
+
