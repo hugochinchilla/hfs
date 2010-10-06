@@ -20,7 +20,7 @@ The practice is compound by the nextelements:
  *  Libraries, divided in levels, which bring the necessary primitives to access our File
     System and manage it.
  *  A mkfs program for creating, with the help of the previous libraries, the File System
-    on the drive. The file system will be actually stored on a **drive.mage** file in our
+    on the drive. The file system will be actually stored on a **drive.image** file in our
     SO, the structure is as follows:
     ![File System](/hugochinchilla/hfs/raw/master/doc/enunciado_files/sistema_ficheros-en.png)
  *  One program for showing the contents of a file on screen (**cat**), one to modify it's
