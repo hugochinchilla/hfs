@@ -2,3 +2,8 @@ This project is an exercises for a subject in "my degree":http://eps.uib.es/est_
 
 h1. ASO (Operating Systems)
 
+
+h2. Docs
+You can read the exercise (in spanish) "here":/docs/enunciado.html
+
+Step by step instruccions (also in spanish) "step by step":/docs/pasoapaso.html
