@@ -3,13 +3,6 @@ This project is an exercises for a subject in [my degree](http://eps.uib.es/est_
 ASO (Operating Systems)
 =======================
 
-Docs
-----
-
-You can read the exercise (in spanish) [here](raw/master/docs/enunciado.html)
-
-Step by step instruccions (also in spanish) [step by step](raw/master/docs/pasoapaso.html)
-
 
 Writing a File System with inodes from zero
 -------------------------------------------
@@ -18,7 +11,7 @@ Writing a File System with inodes from zero
 
 This practice will implement a file system, the module for file management for the OS and the interaction with user processes.
 
-![](/docs/enunciado_files/esquema2009.png)
+![](/hchinchilla/hfs/raw/master/docs/enunciado_files/esquema2009.png)
 
 ### General structure
 
@@ -29,7 +22,7 @@ The practice is compound by the nextelements:
  *  A mkfs program for creating, with the help of the previous libraries, the File System
     on the drive. The file system will be actually stored on a *drive.mage* file in our SO,
     the structure is as follows:
-    ![File System](/docs/enunciado_files/sistema_ficheros.png)
+    ![File System](/hchinchilla/hfs/raw/master/docs/enunciado_files/sistema_ficheros.png)
  *  One program for showing the contents of a file on screen (*cat*), one to modify it's
     permissions (*chmod*), one to make hard links(*ln*), one to list directories (*ls*),
     one to delete files and directories (*rm*), and one to show the meta of a file or dir
