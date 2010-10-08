@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="ca" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" 
+lang="es"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="pasoapaso_files/styles.css">
+<link rel="stylesheet" type="text/css" 
+href="pasoapaso_files/styles_002.css">
+
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="https://ce.uib.es/estudis1011/theme/standard/styles_ie7.css" />
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="https://ce.uib.es/estudis1011/theme/standard/styles_ie6.css" />
+<![endif]-->
+
+
+    <meta name="keywords" content="moodle, 4520_080 201011: La práctica paso a paso, 2010/11 ">
+    <title>4520_080 201011: La práctica paso a paso, 2010/11</title>
+
+  
+</head>
+<body class="mod-resource course-2315 dir-ltr lang-ca_utf8" id="mod-resource-view">
+
+<div id="page">
+
+    <div id="content"><div class="box generalbox generalboxcontent 
+boxaligncenter clearfix">
+<h4> Las dudas sobre la práctica han de hacerse en el <a title="Foro de 
+dudas" 
+href="https://ce.uib.es/estudis1011/mod/mod/forum/view.php?id=77171"><i>foro
+ de dudas</i></a>, para que así sirvan de ayuda al resto de compañeros. <br></h4>
+<h5>La información que aparece a continuación se va actualizando durante
+ el curso.<br></h5>
+<p><br></p>
+<p><span style="font-weight: bold;"></span></p>
+<h2>Semana 1</h2>Las lecturas y escrituras sobre el sistema de ficheros 
+se hacen bloque a bloque.<br>Vamos a programar en <span 
+style="font-weight: bold;">bloques.c</span> las funciones básicas para 
+E/S de bloques:<br>
+<ol>
+  <li><span style="font-family: courier new,courier,monospace;">int 
+bmount(const char *<span style="font-style: italic;">camino</span>);</span><br><br>Hace
+ el <span style="font-style: italic;">open</span> del fichero que se 
+usará como dispositivo.<br> El nombre del fichero va en el argumento de 
+la función. Si no existe, lo creará.<br>La función retornará el 
+descriptor del fichero para ser usado en las siguientes operaciones de 
+E/S.<br>
+    <div style="margin-left: 40px;"> <br></div><span style="font-style: 
+italic;"></span></li>
+  <li><span style="font-family: courier new,courier,monospace;">int 
+bumount();</span><br><br>Básicamente hace el <span style="font-style: 
+italic;">close</span> (y libera cualquier estructura relacionada, si 
+existe).<br><br></li>
+  <li><span style="font-family: courier new,courier,monospace;">int 
+bwrite(unsigned int <span style="font-style: italic;">bloque</span>, 
+const void *<span style="font-style: italic;">buf</span>);</span><br><br>Escribe
+ el contenido de un buffer de memoria, puntero pasado como argumento, en
+ el bloque del sistema de ficheros especificado por el otro argumento.<br>Hay
+ que utilizar la función <span style="font-style: italic;">write</span> 
+precedida de la función <span style="font-style: italic;">lseek</span>.<b><br></b><br></li>
+  <li><span style="font-family: courier new,courier,monospace;">int 
+bread(</span><span style="font-family: courier new,courier,monospace;">unsigned
+ </span><span style="font-family: courier new,courier,monospace;">int <span
+ style="font-style: italic;">bloque</span>, void *<span 
+style="font-style: italic;">buf</span>);</span><br><br>Lee del sistema 
+de ficheros el bloque especificado por uno de los argumentos. Copia su 
+contenido en un buffer de memoria, que deberá ser un puntero también 
+pasado en los argumentos.<br>Hay que utilizar la función <span 
+style="font-style: italic;">read</span> precedida de la función <span 
+style="font-style: italic;">lseek</span>.</li>
+</ol> Es conveniente que el descriptor del fichero se almacene como 
+variable global estática (para que sólo pueda ser accedida en <span 
+style="font-weight: bold;">bloques.c</span>).<br><br>Vamos a escribir 
+una primera versión del programa <span style="font-weight: bold;">mi_mkfs.c</span>
+ que pruebe las funciones de <span style="font-weight: bold;">bloques.c</span>:
+<ol>
+  <li>El programa <span style="font-weight: bold;">mi_mkfs.c</span> 
+sirve para crear el fichero con el tamaño adecuado. Debe ser llamado 
+desde la línea de comandos con los siguientes parámetros:<br>
+    <div style="margin-left: 40px;"><span style="font-family: courier 
+new,courier,monospace;">$ mi_mkfs &lt;nombre_fichero&gt; 
+&lt;cantidad_bloques&gt;</span><br></div><br> Recordemos que los 
+parámetros se recuperan con <span style="font-family: courier 
+new,courier,monospace;">int main(int <span style="font-style: italic;">argc</span>,
+ char **<span style="font-style: italic;">argv</span>)</span><br>
+    <div style="margin-left: 40px;">argc: número de parámetros<br></div>
+    <div style="margin-left: 80px;"> argc=3<br></div>
+    <div style="margin-left: 40px;"> argv: vector de punteros a los 
+parámetros<br>
+      <div style="margin-left: 40px;"> argv[0]="mi_mkfs"<br>argv[1]=nombre_fichero<br>argv[2]=cantidad_bloques
+ (puede sernos útil la función <span style="font-style: italic;">atoi</span>)<br></div></div>
+ <br></li>
+  <li>El primer paso es montar (<span style="font-style: italic;">bmount</span>)
+ el fichero que se usará como dispositivo.<br><br></li>
+  <li>Es necesario llamar a <span style="font-style: italic;">bwrite</span>
+ el número de veces necesario para crear el fichero usado como 
+dispositivo.<br>En este caso, el buffer de memoria empleado puede ser un
+ array de <span style="font-style: italic;">unsigned char</span>.<br><br></li>
+  <li>El último paso es desmontar<span style="font-style: italic;"></span>
+ (<span style="font-style: italic;">bumount</span>) el fichero usado 
+como dispositivo.</li>
+</ol>Para compilar, es recomendable emplear un <a 
+href="http://www.gnu.org/software/make/" title="GNU make">Makefile</a>.<br>Para
+ depurar el código, es recomendable utilizar <a 
+href="http://www.gnu.org/software/gdb/" title="GNU gdb">gdb</a> (o 
+alguna de sus variantes gráficas: <a 
+href="http://projects.gnome.org/nemiver/" title="Nemiver">Nemiver</a>, 
+por ejemplo).<br>Para analizar el contenido del fichero usado como 
+dispositivo, es recomendable utilizar cualquier editor hexadecimal: <a 
+title="Okteta" href="http://utils.kde.org/projects/okteta/">Okteta</a>, 
+por ejemplo.<br><br></div>
+</div>
+</div>
+</body></html>
