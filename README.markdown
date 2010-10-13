@@ -4,7 +4,9 @@ ASO (Operating Systems)
 =======================
 
 **Original docs in spanish**
+
 [Enunciado](http://hugochinchilla.github.com/hfs/doc/enunciado.html)
+
 [Paso a paso](http://hugochinchilla.github.com/hfs/doc/pasoapaso.html)
 
 
