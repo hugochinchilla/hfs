@@ -3,6 +3,10 @@ This project is an exercises for a subject in [my degree](http://eps.uib.es/est_
 ASO (Operating Systems)
 =======================
 
+**Original docs in spanish**
+[Enunciado](http://hugochinchilla.github.com/hfs/doc/enunciado.html)
+[Paso a paso](http://hugochinchilla.github.com/hfs/doc/pasoapaso.html)
+
 
 Writing a File System with inodes from zero
 -------------------------------------------
