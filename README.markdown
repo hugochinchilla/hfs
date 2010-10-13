@@ -9,6 +9,10 @@ ASO (Operating Systems)
  * [Paso a paso](http://hugochinchilla.github.com/hfs/doc/pasoapaso.html)
 
 
+**Interesting links**
+ 
+ * [Disección del sistema de ficheros ext3](http://diariolinux.com/2010/09/11/diseccion-del-sistema-de-archivos-ext3) (spanish)
+
 Writing a File System with inodes from zero
 -------------------------------------------
 
